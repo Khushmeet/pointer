@@ -13,7 +13,7 @@ var linksSchema = new mongoose.Schema({
   body: {
     type: String
   }
-});
+}, {collection: 'pointers'});
 
 var linksModel = mongoose.model('linksModel', linksSchema)
 

@@ -6,11 +6,12 @@ import linksSchema from './graphql/schema'
 var app = express()
 
 app.use('/api/v1', graphqlHTTP(req => ({
-    linksSchema,
+    schema: linksSchema,
+    graphiql: true,
     pretty: true
 })))
 
-mongoose.connect('localhost://pointer-dev/pointers')
+mongoose.connect('mongodb://localhost/pointer-dev')
 
 const server = app.listen(8080, () => {
     console.log('Listening at port ', server.address().port)

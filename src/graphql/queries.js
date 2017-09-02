@@ -4,32 +4,34 @@ import {
     GraphQLNonNull
 } from 'graphql'
 
-import Types from 'mongoose'
 import linksType from './types'
-import getProjection from './get_projection'
 import linksModel from '../db/links'
 
-var singleLinks = {
+const singleLink = {
     type: linksType,
+    description: 'Detail of one link',
     args: {
         id: {
             name: 'id',
             type: new GraphQLNonNull(GraphQLID)
         }
     },
-    resolve(root, params, options) {
-        const projection = getProjection(options.fieldAST[0]);
-        return linksModel.findById(params.id).select(projection).exec()
+    resolve: (root, params, options) => {
+        return linksModel.findById(params.id, (res, err) => {
+            return res;
+        })
     }
 }
 
-var allLinks = {
+const allLinks = {
     type: new GraphQLList(linksType),
+    description: 'List of all the links',
     args: {},
-    resolve(root, params, options) {
-        const projection = getProjection(options.fieldAST[0]);
-        return linksModel.find().select(getProjection).exec()
+    resolve: (root, params , options) => {
+        return linksModel.find({}, (res, err) => {
+            return res
+        })
     }
 }
 
-export default {singleLinks, allLinks}
+export default {singleLink, allLinks}

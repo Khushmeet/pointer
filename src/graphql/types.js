@@ -5,7 +5,7 @@ import {
     GraphQLID
 } from 'graphql'
 
-var linksType = new GraphQLObjectType({
+const linksType = new GraphQLObjectType({
     name: 'links',
     fields: {
         _id: {
