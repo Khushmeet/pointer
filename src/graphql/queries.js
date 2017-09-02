@@ -1,12 +1,12 @@
 import {
     GraphQLList,
     GraphQLID,
-    GraphQLNotNull
+    GraphQLNonNull
 } from 'graphql'
 
 import Types from 'mongoose'
-import linksType from 'types'
-import getProjection from 'get_projection'
+import linksType from './types'
+import getProjection from './get_projection'
 import linksModel from '../db/links'
 
 var singleLinks = {
@@ -14,7 +14,7 @@ var singleLinks = {
     args: {
         id: {
             name: 'id',
-            type: new GraphQLNotNull(GraphQLID)
+            type: new GraphQLNonNull(GraphQLID)
         }
     },
     resolve(root, params, options) {
