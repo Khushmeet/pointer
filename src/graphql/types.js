@@ -5,7 +5,7 @@ import {
     GraphQLID
 } from 'graphql'
 
-var linksObject = new GraphQLObjectType({
+var linksType = new GraphQLObjectType({
     name: 'links',
     fields: {
         _id: {
@@ -26,4 +26,4 @@ var linksObject = new GraphQLObjectType({
     }
 })
 
-export default linksObject
+export default linksType
