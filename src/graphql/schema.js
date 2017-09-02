@@ -3,7 +3,7 @@ import {
     GraphQLSchema
 } from 'graphql'
 
-import mutations from 'mutations'
+import mutations from './mutations'
 import queries from './queries'
 
 const linksSchema = new GraphQLSchema({
