@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLString, GraphQLInputObjectType } from 'graphql'
-import GraphQLJSON from 'graphql-type-json';
+import GraphQLJSON from 'graphql-type-json'
 import linksType from './types'
 import linksModel from '../db/links'
 
